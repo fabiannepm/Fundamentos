@@ -12,6 +12,7 @@ using System;
             WriteOptions();
 
             var option = short.Parse(Console.ReadLine());
+            HandleMenuOption(option);
         }
 
         public static void DrawScreen()
@@ -53,13 +54,26 @@ using System;
             Console.WriteLine("1 - Novo arquivo");          
             Console.SetCursorPosition(3,7);  
             Console.WriteLine("2 - Abrir");          
-            Console.SetCursorPosition(3,9);  
+            Console.SetCursorPosition(3,8);  
             Console.WriteLine("0 - Sair");          
             Console.SetCursorPosition(3,10);  
-            Console.Write("Opção: ");          
-
-
-
+            Console.Write("Opção: ");      
         } 
+
+        public static void HandleMenuOption(short option) // handle significa manipular algo
+        {
+            switch (option)
+            {
+                case 1: Editor.Show(); break;
+                case 2: Console.WriteLine("View"); break;
+                case 0: 
+                {
+                    Console.Clear();
+                    Environment.Exit(0);
+                     break;
+                };
+                default: Show(); break;
+            }
+        }
 
     }
